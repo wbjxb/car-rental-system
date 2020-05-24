@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.min.css'>
+    <meta charset="UTF-8">
+    <title>List of car storage</title>
+</head>
+<body>
+<div class="container">
+    <div class="allCars" th:unless="${#lists.isEmpty(allCars)}">
+
+        <h2>List of car storage</h2>
+
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <!--                <th scope="col">ID</th>-->
+                <th scope="col">Car Model</th>
+                <th scope="col">In stock</th>
+                <th>
+                    Rent
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sb : ${allCars}">
+                <!--                <td scope="row" th:text="${sb.id}">Impossibility</td>-->
+                <td th:text="${sb.modelName}"></td>
+                <td th:text="${sb.inStockQuantity}"></td>
+                <td>
+                    <a th:href="@{'/cars/rental/' + ${sb.modelId}}" th:method="POST">Rent</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
