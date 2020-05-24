@@ -38,6 +38,7 @@ class CarStorageServiceImplTest {
 
   @Test
   void sendBack() {
+
     Result<Boolean> booleanResult = carStorageService.sendBack("粤B1111");
   }
 }
